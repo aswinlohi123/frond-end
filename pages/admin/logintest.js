@@ -81,6 +81,7 @@ const Login = ({ handleChange }) => {
       const url = "http://localhost:8000/api/log";
       const res = await axios.post(url, values).then((val) => {
         if (val.status === 200) {
+          localStorage.setItem('token', val?.data?.jwt)
           // if login is successful, redirect to dashboard
           router.replace("/dashboard",);
           

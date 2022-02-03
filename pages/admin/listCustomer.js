@@ -14,10 +14,10 @@ const AddCustemer = () => {
     const [customer, setCustomer] = useState();
     const [isLoaded, setIsLoaded] = useState(true);
     const url = "http://127.0.0.1:8000/api/add_customer";
-    const token = localStorage.getItem("token");
 
     useEffect(() => {
         async function getCustomer() {
+            const token = localStorage.getItem('token')
             const res = await axios.get(url,  { headers: { Authorization: `Bearer ${token}` } }).then((res) => {
                 console.log("res", res);
                 res?.data && setCustomer(res?.data);
